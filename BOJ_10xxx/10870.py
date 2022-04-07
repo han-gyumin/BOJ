@@ -1,13 +1,11 @@
-# 피보나치 수열
-def fivo(x):
-    if x == 0:
+result=0
+def fivo(n):
+    if n==0:
         return 0
-    elif x == 1:
+    elif n==1:
         return 1
     else:
-        return fivo(x - 1) + fivo(x - 2)
-
-
-num = int(input())
-
+        result=fivo(n-2)+fivo(n-1)
+        return result
+num=int(input())
 print(fivo(num))
