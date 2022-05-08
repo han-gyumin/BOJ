@@ -1,15 +1,17 @@
 # N과 M(3)
 n,m=map(int,input().split())
 
-arr=[]
+lst=[]
+
 def dfs():
-    if len(arr)==m:
-            print(' '.join(map(str,arr)))
-            return
-    
-    for i in range(1,n+1):
-        arr.append(i)
-        dfs()
-        arr.pop()
+        if len(lst)==m:
+                print(' '.join(map(str,lst)))
+                return
+        
+        for i in range(1,n+1):
+                lst.append(i)
+                dfs()
+                lst.pop()
+
 
 dfs()

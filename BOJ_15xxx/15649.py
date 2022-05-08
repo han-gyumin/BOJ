@@ -1,8 +1,6 @@
 # N과M (1)
-n, m=list(map(int,input().split()))
-
-s = []
-
+n,m=map(int,input().split())
+s=[]
 def dfs():
     if len(s)==m:
         print(' '.join(map(str,s)))
