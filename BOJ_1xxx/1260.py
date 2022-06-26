@@ -1,50 +1,49 @@
-#  bfs dfs
 from collections import deque
+# dfs bfs
+def dfs(graph,v,visited):
+    visited[v]=True
+    print(v,end=' ')
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph,i,visited)
 
-def DFS(graph, root):
-    visited = []
-    stack = [root]
 
-    while stack:
-        n = stack.pop()
-        if n not in visited:
-            visited.append(n)
-            if n in graph:
-                temp = list(set(graph[n]) - set(visited))
-                temp.sort(reverse=True)
-                stack += temp
-    return " ".join(str(i) for i in visited)
+graph=[
+    [],
+    [2,3,8],
+    [1,7],
+    [1,4,5],
+    [3,5],
+    [3,4],
+    [7],
+    [2,6,8],
+    [1,7]
+]
+visited=[False]*9
+dfs(graph,1,visited)
 
-def BFS(graph, root):
-    visited = []
-    queue = deque([root])
 
+def bfs(graph,start,visited):
+    queue=deque([start])
+    visited[start]=True
     while queue:
-        n = queue.popleft()
-        if n not in visited:
-            visited.append(n)
-            if n in graph:
-                temp = list(set(graph[n]) - set(visited))
-                temp.sort()
-                queue += temp
-    return " ".join(str(i) for i in visited)
+        v=queue.popleft
+        print(v,end=" ")
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i]=True
 
-  
-graph = {}
-n = input().split(' ')
-node, edge, start = [int(i) for i in n]
-for i in range(edge):
-    edge_info = input().split(' ')
-    n1, n2 = [int(j) for j in edge_info]
-    if n1 not in graph:
-        graph[n1] = [n2]
-    elif n2 not in graph[n1]:
-        graph[n1].append(n2)
-
-    if n2 not in graph:
-        graph[n2] = [n1]
-    elif n1 not in graph[n2]:
-        graph[n2].append(n1)
-
-print(DFS(graph, start))
-print(BFS(graph, start))
+graph=[
+    [],
+    [2,3,8],
+    [1,7],
+    [1,4,5],
+    [3,5],
+    [3,4],
+    [7],
+    [2,6,8],
+    [1,7]
+]
+visited=[False]*9
+bfs(graph,1,visited)
