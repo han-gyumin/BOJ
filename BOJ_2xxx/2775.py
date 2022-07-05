@@ -1,14 +1,11 @@
-num=int(input())
-arr=[[]]
-for i in range(1,15):
-    arr[0].append(i)
+# 부녀회장이 될테야
+num = int(input())
 
-
-
-for i in range(num):
-    resident=0
-    n=int(input())
-    k=int(input())
-    if n==0:
-        resident=arr[0][k-1]
-    print(resident)
+for _ in range(num):  
+    k = int(input())  
+    n = int(input()) 
+    lst_0 = [x for x in range(1, n+1)] 
+    for i in range(k):  
+        for j in range(1, n):  
+            lst_0[j] += lst_0[j-1]  
+    print(lst_0[-1])  
