@@ -1,29 +1,21 @@
 # N과 M (9)
+n, m = map(int, input().split())
+nums = sorted(list(map(int, input().split())))
+visited = [False] * n
+temp = []
 
-n,m=map(int,input().split())
-
-lst=list(map(int,input().split()))
-lst.sort()
-final=[]
-cnt=[]
 def dfs():
-        
-        if len(final)==m:
-                print(' '.join(map(str,final)))
-                return
-        
-        for i in lst:
-            if len(final)==0:
-                final.append(i)
-                cnt.append(i)
-                dfs()
-                final.pop()
-            elif i not in final and i not in cnt:
-                final.append(i)
-
-                dfs()
-                final.pop()
-            cnt.append(i)
-        cnt=[]
+    if len(temp) == m:
+        print(*temp)
+        return
+    remember_me = 0
+    for i in range(n):
+        if not visited[i] and remember_me != nums[i]:
+            visited[i] = True
+            temp.append(nums[i])
+            remember_me = nums[i]
+            dfs()
+            visited[i] = False
+            temp.pop()
 
 dfs()
