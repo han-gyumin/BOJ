@@ -1,12 +1,22 @@
 # 숫자 카드2
 import sys
+input = sys.stdin.readline
 
-num=int(sys.stdin.readline())
-lst=list(map(int,sys.stdin.readline().split()))
-n=int(sys.stdin.readline())
-lst2=list(map(int,sys.stdin.readline().split()))
-final=[]
-for i in lst2:
-    final.append(lst.count(i))
-for i in final:
-    print(i,end=" ")
+N = int(input())
+cards = [*map(int, input().split())]
+M = int(input())
+candidate = [*map(int, input().split())]
+
+count = {}
+for card in cards:
+    if card in count:
+        count[card] += 1
+    else:
+        count[card] = 1
+
+for target in candidate:
+    result = count.get(target)
+    if result == None:
+        print(0, end=" ")
+    else:
+        print(result, end=" ")
