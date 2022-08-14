@@ -1,3 +1,4 @@
+# 한수
 num=int(input())
 
 arr=[]
