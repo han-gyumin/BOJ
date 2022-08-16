@@ -19,3 +19,4 @@ def dfs(start):
 
 dfs(1)
 print(cnt)
+print(graph)
